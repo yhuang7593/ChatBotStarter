@@ -60,9 +60,9 @@ public class ChatBot2
 			response = "Say something, please.";
 		}
 
-		else if (findKeyword(statement, "no") >= 0)
+		else if (findKeyword(statement, "yes") >= 0)
 		{
-			response = "Why so negative?";
+			response = "Why so positive";
                 	emotion--;
 		}
 		
@@ -91,7 +91,7 @@ public class ChatBot2
 	
 	/**
 	 * Take a statement with "I want to <something>." and transform it into 
-	 * "Why do you want to <something>?"
+	 * "Would you really be happy if you got <something>?"
 	 * @param statement the user statement, assumed to contain "I want to"
 	 * @return the transformed statement
 	 */
@@ -108,7 +108,7 @@ public class ChatBot2
 		}
 		int psn = findKeyword (statement, "I want to", 0);
 		String restOfStatement = statement.substring(psn + 9).trim();
-		return "Why do you want to " + restOfStatement + "?";
+		return "Would you really be happy if you got " + restOfStatement + "?";
 	}
 
 	
@@ -270,5 +270,6 @@ public class ChatBot2
 	};
 	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
 	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
-	
+
+
 }
