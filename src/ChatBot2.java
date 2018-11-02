@@ -91,7 +91,7 @@ public class ChatBot2
 	
 	/**
 	 * Take a statement with "I want to <something>." and transform it into 
-	 * "Would you really be happy if you got <something>?"
+	 * "Why do you want to <something>?"
 	 * @param statement the user statement, assumed to contain "I want to"
 	 * @return the transformed statement
 	 */
@@ -108,8 +108,9 @@ public class ChatBot2
 		}
 		int psn = findKeyword (statement, "I want to", 0);
 		String restOfStatement = statement.substring(psn + 9).trim();
-		return "Would you really be happy if you got " + restOfStatement + "?";
+		return "Why do you want to" + restOfStatement + "?";
 	}
+
 
 	
 	/**
