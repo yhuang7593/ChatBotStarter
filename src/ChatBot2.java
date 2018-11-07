@@ -72,10 +72,10 @@ public class ChatBot2
 			emotion++;
 		}
 
-		// Response transforming I want to statement
-		else if (findKeyword(statement, "I want to", 0) >= 0)
+		// Response transforming I don't want to statement
+		else if (findKeyword(statement, "I don't want to", 0) >= 0)
 		{
-			response = transformIWantToStatement(statement);
+			response = transformIDontWantToStatement(statement);
 		}
 		else if (findKeyword(statement, "I want",0) >= 0)
 		{
@@ -95,7 +95,7 @@ public class ChatBot2
 	 * @param statement the user statement, assumed to contain "I don't want to"
 	 * @return the transformed statement
 	 */
-	private String transformIWantToStatement(String statement)
+	private String transformIDontWantToStatement(String statement)
 	{
 		//  Remove the final period, if there is one
 		statement = statement.trim();
@@ -107,8 +107,8 @@ public class ChatBot2
 					.length() - 1);
 		}
 		int psn = findKeyword (statement, "I don't want to", 0);
-		String restOfStatement = statement.substring(psn + 9).trim();
-		return "Why don't you want to" + restOfStatement + "?";
+		String restOfStatement = statement.substring(psn + 15).trim();
+		return "Why don't you want to " + restOfStatement + "?";
 	}
 
 
@@ -258,7 +258,7 @@ public class ChatBot2
 		{	
 			return randomAngryResponses [r.nextInt(randomAngryResponses.length)];
 		}	
-		return randomHappyResponses [r.nextInt(randomHappyResponses.length)];
+		return randomPessimisticResponses [r.nextInt(randomPessimisticResponses.length)];
 	}
 	
 	private String [] randomNeutralResponses = {"Interesting, tell me more",
@@ -270,7 +270,7 @@ public class ChatBot2
 			"Could you say that again?"
 	};
 	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
-	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
+	private String [] randomPessimisticResponses = {"It's okay, it's only going to get worse.", "Today is an awful day!", "I hste everyone."};
 
 
 }
