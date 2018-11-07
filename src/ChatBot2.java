@@ -90,9 +90,9 @@ public class ChatBot2
 	}
 	
 	/**
-	 * Take a statement with "I want to <something>." and transform it into 
-	 * "Why do you want to <something>?"
-	 * @param statement the user statement, assumed to contain "I want to"
+	 * Take a statement with "I don't want to <something>." and transform it into
+	 * "Why don't you want to <something>?"
+	 * @param statement the user statement, assumed to contain "I don't want to"
 	 * @return the transformed statement
 	 */
 	private String transformIWantToStatement(String statement)
@@ -106,9 +106,9 @@ public class ChatBot2
 			statement = statement.substring(0, statement
 					.length() - 1);
 		}
-		int psn = findKeyword (statement, "I want to", 0);
+		int psn = findKeyword (statement, "I don't want to", 0);
 		String restOfStatement = statement.substring(psn + 9).trim();
-		return "Why do you want to" + restOfStatement + "?";
+		return "Why don't you want to" + restOfStatement + "?";
 	}
 
 
